@@ -116,7 +116,7 @@ function FunkyParser(opt) {
 module.exports = FunkyParser
 ```
 
-This leads to consistent require statements that will work inline:
+This allows the module to be required and instantiated inline, like so:
 
 ```js
 var parser = require('funky-parser')({ foo: 'bar' })
