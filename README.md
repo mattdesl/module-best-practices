@@ -212,11 +212,15 @@ It is a good idea to add an `.npmignore` to your package, which leads to quicker
 
 If you have a build task (like UMD or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, gulp/grunt is often overkill and increases the bloat and install time of your module. 
 
-In package.json:
+In `package.json`:
 
-```"build": "browserify foo.js -s Foo | uglifyjs -cm > build/foo.min.js"```
+```json
+  "scripts": {
+    "build": "browserify foo.js -s Foo | uglifyjs -cm > build/foo.min.js"
+  }
+```
 
-Now you can run `npm run build` to run the task.
+Now you can run `npm run build` for the build task.
 
 If you're writing small CommonJS modules, you typically won't need to have any tasks except a test runner. You don't need to list `browserify` as a devDependency since the module is assumed to work in any CommonJS bundler (webpack, DuoJS, browserify, etc). 
 
