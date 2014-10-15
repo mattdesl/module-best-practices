@@ -19,9 +19,9 @@ This is a set of "best practices" I've found for writing new JavaScript modules.
 
 ## module basics
 
-A "module" is just a reusable chunk of code, abstracted into a more user-friendly API. Ideally you should aim to build modules that are small, focused, and work well toegether. 
+A "module" is just a reusable chunk of code, abstracted into a more user-friendly API. 
 
-Your module should have a *very specific* purpose. Don't try to build a *framework*, rather; try building its underlying parts as separate modules (which could, if desired, be used together to mimic the scope of a framework).
+Modules should have a *very specific* purpose. Don't aim to build a *framework*, instead; imagine you're building its underlying parts as separate pieces (which could, if desired, be composed together to mimic the scope of a framework).
 
 This is the core of the Unix Philosophy: building small programs that do one thing, do it well, and compose easily with other programs.
 
