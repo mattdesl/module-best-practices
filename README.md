@@ -158,7 +158,7 @@ It's important to follow SemVer when you publish changes to your module. Others 
 
 If you are adding new backward-compatible features, be sure to list them as a `minor` version. If you are changing or adding something that breaks the documented API, you should list it as a `major` (breaking) version. For small bug fixes and non-code updates, you can update the `patch` number. 
 
-It's best to use the command itself, as it will update `package.json` and commit a new git tag:
+There is an npm command you should use for updating — it will update `package.json` and commit a new git tag:
 
 ```npm version major|minor|version```
 
@@ -183,11 +183,12 @@ var rgba = [1.0, 1.0, 1.0, 0.5]
 
 This makes it easier to compose with other modules, and avoids the problems of constantly "boxing and unboxing" objects across different libraries. 
 
-For more advanced data types, like [simplicial-complex](https://www.npmjs.org/package/simplicial-complex), you should think in terms of bare objects rather than "wrapper classes." 
+For more advanced data types, like [simplicial-complex](https://www.npmjs.org/package/simplicial-complex), you should still aim to be generic where possible, using bare objects.
 
-If you need an application-specific wrapper (for example, a Sphere mesh which has its own color, transforms, WebGL buffers, etc) it would be better to build that wrapper on top of a generic module. See [icosphere](https://www.npmjs.org/package/icosphere) for example:
+If you need an application-specific wrapper (for example, a Sphere class which has its own color, transforms, WebGL buffers, etc) it would be better to build that wrapper on top of a generic module. See [icosphere](https://www.npmjs.org/package/icosphere) for example:
 
 ```js
+//gives us { positions, cells }
 var mesh = require('icosphere')(2)
 
 module.exports = function sphere() {
