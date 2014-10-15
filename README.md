@@ -164,7 +164,7 @@ It's important to follow SemVer when you publish changes to your module. Others 
 
 If you are adding new backward-compatible features, be sure to list them as a `minor` version. If you are changing or adding something that breaks the documented API, you should list it as a `major` (breaking) version. For small bug fixes and non-code updates, you can update the `patch` number. 
 
-There is an npm command you should use for updating — it will update `package.json` and commit a new git tag:
+Use the following npm command for updating — it will modify `package.json` and commit a new git tag:
 
 ```npm version major|minor|patch```
 
@@ -212,7 +212,11 @@ It is a good idea to add an `.npmignore` to your package, which leads to quicker
 
 If you have a build task (like UMD or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, gulp/grunt is often overkill and increases the bloat and install time of your module. 
 
-```browserify foo.js -s Foo | uglifyjs -cm > build/foo.min.js```
+In package.json:
+
+```"build": "browserify foo.js -s Foo | uglifyjs -cm > build/foo.min.js"```
+
+Now you can run `npm run build` to run the task.
 
 If you're writing small CommonJS modules, you typically won't need to have any tasks except a test runner. You don't need to list `browserify` as a devDependency since the module is assumed to work in any CommonJS bundler (webpack, DuoJS, browserify, etc). 
 
