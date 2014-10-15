@@ -74,6 +74,7 @@ Although the above code is terse, it could be improved by depending on a module 
 There are some benefits to this approach:
 
 - The other module is already being used and depended on in the wild
+- The other module has (often) gone through revisions to fix edge cases
 - The other module has its own tests, versioning, documentation, issue tracking, etc
 - It reduces code duplication (e.g. in the case of browserify)
 
