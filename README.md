@@ -16,6 +16,7 @@ This is a set of "best practices" I've found for writing new JavaScript modules.
 - [environments](#environments)
 - [npmignore](#npmignore)
 - [task running](#task-running)
+- [UMD builds](#UMD-builds)
 
 ## module basics
 
@@ -104,14 +105,14 @@ This is a controversial topic for a lot of devs; but I've found the best approac
 
 ```js
 function FunkyParser(opt) {
-	//hide "new"
-	if (!(this instanceof FunkyParser))
-		return new FunkyParser(opt)
-	//make params optional
-	opt = opt||{}
+    //hide "new"
+    if (!(this instanceof FunkyParser))
+        return new FunkyParser(opt)
+    //make params optional
+    opt = opt||{}
 
-	this.foo = opt.foo || 'default'
-	// handle other options...
+    this.foo = opt.foo || 'default'
+    // handle other options...
 }
 
 module.exports = FunkyParser
@@ -167,7 +168,7 @@ There is an npm command you should use for updating — it will update `package.
 
 Your code should aim to work server-side and client-side where possible. For example; a color palette generator should not have any DOM dependencies; instead, those should be built separately, on top of your base module.
 
-The closer you follow CommonJS, the more likely your module will be useful in a variety of environments (like Ejecta/Cocoon, ExtendScript for AfterEffects, Node, etc).
+The closer you follow Node's CommonJS, the more likely your module will be useful in a variety of environments (like Ejecta/Cocoon, ExtendScript for AfterEffects, Node, etc).
 
 You can use the [`browser` field](https://gist.github.com/defunctzombie/4339901) if you have a Node module which needs to be treated differently for the browser.
 
@@ -193,7 +194,7 @@ If you need an higher level wrapper (for example, a Sphere class which has its o
 var mesh = require('icosphere')(2)
 
 module.exports = function sphere() {
-	// .. app-specific code that uses generic mesh
+    // .. app-specific code that uses generic mesh
 }
 ```
 
@@ -208,6 +209,20 @@ If you have a build task (like UMD or a test runner) it is better to keep this s
 ```browserify foo.js -s Foo | uglifyjs -cm > build/foo.min.js```
 
 If you're writing small CommonJS modules, you typically won't need to have any tasks except a test runner. You don't need to list `browserify` as a devDependency since the module is assumed to work in any CommonJS bundler (webpack, DuoJS, browserify, etc). 
+
+## UMD builds
+
+A UMD build is one that works in multiple environments, like Node/CommonJS, AMD/RequireJS, and just a regular `<script>` tag. Instead of bloating your module code with this boilerplate, and potentially making typos in the process, you should let tools handle this. This also means you will be using the latest wrappers (they may change as new environments become popular). Example:
+
+```sh
+# with browserify
+browserify index.js --standalone FunkyParser -o build/funky-parser.js
+
+# with webpack
+webpack --output-library FunkyParser --output-library-target umd --outfile build/funky-parser.js
+```
+
+Generally speaking, UMD builds are not very useful for small modules. Adding bundle files leads to heavier repos and another channel you need to support. If somebody wants to use your module, encourage them to depend on it via npm so they can receive patches, or build it themselves with their tool of choice. 
 
 ## more ... ? 
 
