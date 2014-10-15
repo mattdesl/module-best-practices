@@ -220,7 +220,9 @@ In `package.json`:
   }
 ```
 
-Now you can run `npm run build` for the build task.
+And then, to build:
+
+```npm run build```
 
 If you're writing small CommonJS modules, you typically won't need to have any tasks except a test runner. You don't need to list `browserify` as a devDependency since the module is assumed to work in any CommonJS bundler (webpack, DuoJS, browserify, etc). 
 
