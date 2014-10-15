@@ -154,6 +154,10 @@ For front-end modules, you may need to test in the browser. For this I encourage
 
 For 2D and WebGL canvas-based demos, I tend to use [canvas-testbed](https://www.npmjs.org/package/canvas-testbed) to reduce boilerplate and produce consistent results across device pixel ratios. Example [here](https://github.com/mattdesl/gl-vignette-background/blob/master/demo/index.js).
 
+Dependencies used in tests and demos should be installed as `devDependencies` like so:  
+
+```npm install canvas-testbed --save-dev```
+
 ## versioning
 
 It's important to follow SemVer when you publish changes to your module. Others are expecting that they can safely update patch and minor versions of your module without the user-facing API breaking. 
