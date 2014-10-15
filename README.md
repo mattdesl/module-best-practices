@@ -190,7 +190,7 @@ If you need an application-specific wrapper (for example, a Sphere mesh which ha
 ```js
 var mesh = require('icosphere')(2)
 
-function sphere() {
+module.exports = function sphere() {
 	// .. app-specific code that uses generic mesh
 }
 ```
