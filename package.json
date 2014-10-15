@@ -1,0 +1,32 @@
+{
+  "name": "module-best-practices",
+  "version": "1.0.0",
+  "description": "best practices for npm modules",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "module",
+    "best",
+    "practices",
+    "standard",
+    "conventions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/module-best-practices.git"
+  },
+  "homepage": "https://github.com/mattdesl/module-best-practices",
+  "bugs": {
+    "url": "https://github.com/mattdesl/module-best-practices/issues"
+  }
+}
