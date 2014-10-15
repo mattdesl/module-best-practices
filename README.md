@@ -201,7 +201,7 @@ It is a good idea to add an `.npmignore` to your package, which leads to quicker
 
 ## task running
 
-If you have a build task (like UMD or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, gulp/grunt is often overkill.
+If you have a build task (like UMD or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, gulp/grunt is often overkill and increases the bloat and install time of your module. 
 
 ```browserify foo.js -s Foo | uglifyjs -cm > build/foo.min.js```
 
