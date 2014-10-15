@@ -214,14 +214,16 @@ If you're writing small CommonJS modules, you typically won't need to have any t
 
 ## UMD builds
 
-A UMD build is one that works in multiple environments, like Node/CommonJS, AMD/RequireJS, and just a regular `<script>` tag. Instead of bloating your module code with this boilerplate, and potentially making typos in the process, you should let tools handle this. This also means you will be using the latest wrappers (they may change as new environments become popular). Example:
+A UMD build is a JS bundle that works in multiple environments, like Node/CommonJS, AMD/RequireJS, and just a regular `<script>` tag. Instead of bloating your module code with this boilerplate, and potentially making typos in the process, you should let tools handle this. This also means you will be using the latest wrappers (they may change as new environments become popular). Example:
 
 ```sh
 # with browserify
 browserify index.js --standalone FunkyParser -o build/funky-parser.js
 
 # with webpack
-webpack --output-library FunkyParser --output-library-target umd --outfile build/funky-parser.js
+webpack --output-library FunkyParser \ 
+    --output-library-target umd \
+    --outfile build/funky-parser.js
 ```
 
 Generally speaking, UMD builds are not very useful for small modules. Adding bundle files leads to heavier repos and another channel you need to support. If somebody wants to use your module, encourage them to depend on it via npm so they can receive patches, or build it themselves with their tool of choice. 
