@@ -186,7 +186,7 @@ This makes it easier to compose with other modules, and avoids the problems of c
 
 For more advanced data types, like [simplicial-complex](https://www.npmjs.org/package/simplicial-complex), you should still aim to be generic where possible, using bare objects.
 
-If you need an application-specific wrapper (for example, a Sphere class which has its own color, transforms, WebGL buffers, etc) it would be better to build that wrapper on top of a generic module. See [icosphere](https://www.npmjs.org/package/icosphere) for example:
+If you need an higher level wrapper (for example, a Sphere class which has its own color, transforms, WebGL buffers, etc) it would be better to build that wrapper on top of a generic module. See [icosphere](https://www.npmjs.org/package/icosphere) for example:
 
 ```js
 //gives us { positions, cells }
