@@ -214,7 +214,7 @@ If you have a build task (like UMD or a test runner) it is better to keep this s
 
 In `package.json`:
 
-```json
+```js
   "scripts": {
     "build": "browserify foo.js -s Foo | uglifyjs -cm > build/foo.min.js"
   }
