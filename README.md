@@ -164,6 +164,8 @@ There is an npm command you should use for updating — it will update `package.
 
 ```npm version major|minor|version```
 
+You should start modules with version `1.0.0`. The exception to this is when you know your module will be going under a lot of major API changes before stabilizing (i.e. for experimental packages). In that case, you can start with `0.0.0` and only promote to `1.0.0` once the API is a little more stable.
+
 ## environments
 
 Your code should aim to work server-side and client-side where possible. For example; a color palette generator should not have any DOM dependencies; instead, those should be built separately, on top of your base module.
