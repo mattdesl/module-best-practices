@@ -1,6 +1,6 @@
 {
   "name": "module-best-practices",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "best practices for npm modules",
   "main": "index.js",
   "license": "MIT",
