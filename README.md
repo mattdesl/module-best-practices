@@ -166,7 +166,7 @@ If you are adding new backward-compatible features, be sure to list them as a `m
 
 There is an npm command you should use for updating — it will update `package.json` and commit a new git tag:
 
-```npm version major|minor|version```
+```npm version major|minor|patch```
 
 You should start modules with version `1.0.0`. The exception to this is when you know your module will be going under a lot of major API changes before stabilizing (i.e. for experimental packages). In that case, you can start with `0.0.0` and only promote to `1.0.0` once the API is a little more stable.
 
