@@ -10,7 +10,10 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {
-    "img": "0.0.1"
+    "default-pager": "~1.0.1"
+  },
+  "bin": {
+    "module-best-practices": "bin/cmd.js"
   },
   "devDependencies": {},
   "scripts": {
