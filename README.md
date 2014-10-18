@@ -14,6 +14,7 @@ This is a set of "best practices" I've found for writing new JavaScript modules.
 - [testing](#testing)
 - [versioning](#versioning)
 - [environments](#environments)
+- [data types](#data-types)
 - [npmignore](#npmignore)
 - [task running](#task-running)
 - [UMD builds](#UMD-builds)
