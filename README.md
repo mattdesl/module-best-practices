@@ -204,6 +204,8 @@ module.exports = function sphere() {
 }
 ```
 
+For low-level and performance critical functions operating on these data types, you may want to provide an optional `out` parameter for re-using arrays/objects, to avoid thrashing the garbage collector. Examples: [texcoord](https://www.npmjs.org/package/texcoord), [lerp-array](https://www.npmjs.org/package/lerp-array). Be weary of Array `map/reduce/forEach` which could cause problems if your second or third parameter is the optional `out`. 
+
 ## npmignore
 
 It is a good idea to add an `.npmignore` to your package, which leads to quicker installs. You can ignore most files, like tests, example code, generated API docs, etc. This way, users installing your module just get the bare essentials.
