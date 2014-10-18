@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-var fs = require('fs');
-var pager = require('default-pager');
+var fs = require('fs')
+var pager = require('default-pager')
 
-fs.createReadStream(__dirname + '/../README.md').pipe(pager());
+module.exports = fs.createReadStream(__dirname + '/../README.md')
+
+if (require.main === module)
+	module.exports.pipe(pager())
