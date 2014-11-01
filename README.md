@@ -231,7 +231,7 @@ If you're writing small CommonJS modules, you typically won't need to have any t
 
 ## UMD builds
 
-A UMD build is a JS bundle that works in multiple environments, like Node/CommonJS, AMD/RequireJS, and just a regular `<script>` tag. Instead of bloating your module code with [the wrapper boilerplate](https://github.com/umdjs/umd), and potentially making errors in the process, you should let tools handle this. This also means you will be using the latest wrappers (they may change as new environments become popular). Example:
+A [UMD](https://github.com/umdjs/umd) build is a JS bundle that works in multiple environments, like Node/CommonJS, AMD/RequireJS, and just a regular `<script>` tag. Instead of bloating your module code with [the wrapper boilerplate](https://github.com/umdjs/umd), and potentially making errors in the process, you should let tools handle this. This also means you will be using the latest wrappers (they may change as new environments become popular). Example:
 
 ```sh
 # with browserify
