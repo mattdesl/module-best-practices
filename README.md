@@ -175,7 +175,7 @@ You should start modules with version `1.0.0`. The exception to this is when you
 
 Your code should aim to work server-side and client-side where possible. For example; a color palette generator should not have any DOM dependencies; instead, those should be built separately, on top of your base module.
 
-The closer you follow Node's CommonJS, the more likely your module will be useful in a variety of environments (like Ejecta/Cocoon, ExtendScript for AfterEffects, Node, etc).
+The closer you follow Node's standards, the more likely your module will be useful in a variety of environments (like Ejecta/Cocoon, ExtendScript for AfterEffects, Node, etc).
 
 You can use the [`browser` field](https://gist.github.com/defunctzombie/4339901) if you have a Node module which needs to be treated differently for the browser.
 
