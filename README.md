@@ -219,7 +219,9 @@ In `package.json`:
 
 ```js
   "scripts": {
-    "build": "browserify foo.js -s Foo | uglifyjs -cm > build/foo.min.js"
+    "bundle": "browserify foo.js -s Foo -o build/foo.js",
+    "uglify": "uglifyjs build/foo.js -cm > build/foo.min.js",
+    "build": "npm run bundle && npm run uglify"
   }
 ```
 
@@ -228,6 +230,8 @@ And then, to build:
 ```npm run build```
 
 If you're writing small CommonJS modules, you typically won't need to have any tasks except a test runner. You don't need to list `browserify` as a devDependency since the module is assumed to work in any CommonJS bundler (webpack, DuoJS, browserify, etc). 
+
+**Note:** One drawback of this approach is that it often encourages Unix-only features like piping. 
 
 ## UMD builds
 
