@@ -1,6 +1,6 @@
 # module best practices
 
-This is a set of "best practices" I've found for writing new JavaScript modules.
+This is a set of "best practices" I've found for writing new JavaScript modules. This guide deals specifically with Node/CommonJS modules that can be hosted on npm, but the basics can be extrapolated elsewhere. 
 
 ### contents
 
