@@ -1,6 +1,6 @@
 # module best practices
 
-This is a set of "best practices" I've found for writing new JavaScript modules.
+This is a set of "best practices" I've found for writing new JavaScript modules. This guide deals specifically with Node/CommonJS modules that can be hosted on npm, but the basics can be extrapolated elsewhere. 
 
 ### contents
 
@@ -89,7 +89,7 @@ It is also better to prefer small dependencies rather than broad "libraries." Fo
 You should make sure your module has these things:
 
 - a `README.md` file that describes the module, gives a short code example, and documents its public API
-- `repository` field in package.json 
+- a `repository` field in package.json 
 - common `keywords` listed in package.json
 - a clear `description` in package.json
 - a `license` field in package.json
@@ -175,7 +175,7 @@ You should start modules with version `1.0.0`. The exception to this is when you
 
 Your code should aim to work server-side and client-side where possible. For example; a color palette generator should not have any DOM dependencies; instead, those should be built separately, on top of your base module.
 
-The closer you follow Node's CommonJS, the more likely your module will be useful in a variety of environments (like Ejecta/Cocoon, ExtendScript for AfterEffects, Node, etc).
+The closer you follow Node's standards, the more likely your module will be useful in a variety of environments (like Ejecta/Cocoon, ExtendScript for AfterEffects, Node, etc).
 
 You can use the [`browser` field](https://gist.github.com/defunctzombie/4339901) if you have a Node module which needs to be treated differently for the browser.
 
@@ -194,7 +194,7 @@ This makes it easier to compose with other modules, and avoids the problems of c
 
 For more advanced data types, like [simplicial-complex](https://www.npmjs.org/package/simplicial-complex), you should still aim to be generic where possible, using bare objects.
 
-If you need an higher level wrapper (for example, a Sphere class which has its own color, transforms, WebGL buffers, etc) it would be better to build that wrapper on top of a generic module. See [icosphere](https://www.npmjs.org/package/icosphere) for example:
+If you need a higher level wrapper (for example, a Sphere class which has its own color, transforms, WebGL buffers, etc) it would be better to build that wrapper on top of a generic module. See [icosphere](https://www.npmjs.org/package/icosphere) for example:
 
 ```js
 //gives us { positions, cells }
@@ -213,7 +213,7 @@ It is a good idea to add an `.npmignore` to your package, which leads to quicker
 
 ## task running
 
-If you have a build task (like UMD or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, gulp/grunt is often overkill and increases the bloat and install time of your module. 
+If you have a build task (like [UMD](https://github.com/umdjs/umd) or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, gulp/grunt is often overkill and increases the bloat and install time of your module. 
 
 In `package.json`:
 
