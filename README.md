@@ -252,7 +252,7 @@ Generally speaking, UMD builds are not very useful for small modules. Adding bun
 
 ## entry points
 
-Occasionally you will find it useful to provide end users with a non-standard entry point, such as a higher-order function or splitting the module into separate files. This is especially useful for front-end code, where bundle size and non-Node frameworks becomes a concern.
+Occasionally you will find it useful to provide end users with a non-standard entry point, such as a higher-order function or explicit requires. This is especially useful for front-end code, where bundle size and non-Node frameworks becomes a concern.
 
 Examples:  
 
