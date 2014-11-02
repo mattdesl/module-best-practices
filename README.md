@@ -18,6 +18,7 @@ This is a set of "best practices" I've found for writing new JavaScript modules.
 - [npmignore](#npmignore)
 - [task running](#task-running)
 - [UMD builds](#umd-builds)
+- [entry points](#entry-points)
 
 ## module basics
 
@@ -248,6 +249,18 @@ webpack --output-library FunkyParser \
 ```
 
 Generally speaking, UMD builds are not very useful for small modules. Adding bundle files leads to heavier repos and another channel you need to support. If somebody wants to use your module, encourage them to depend on it via npm so they can receive patches, or build it themselves with their tool of choice. 
+
+## entry points & vendor lock-in
+
+Occasionally you will find it useful to provide end-users with multiple entry points or a higher-order function. This is especially pertinent to front-end code, where bundle size and non-Node frameworks becomes a concern.
+
+Examples:  
+
+- [gl-mat4](https://www.npmjs.org/package/gl-mat4) - splitting @toji's gl-matrix library into separate files for smaller bundle size
+- [three-effectcomposer](https://www.npmjs.org/package/three-effectcomposer) - a ThreeJS plugin using a higher-order function 
+- [global](https://github.com/Raynos/global) - multiple entry points for different globals
+
+The subject is discussed in more detail in the [Entry Points](wiki/Entry-Points) wiki page.
 
 ## more ... ? 
 
