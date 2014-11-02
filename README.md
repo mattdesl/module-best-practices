@@ -18,7 +18,7 @@ This is a set of "best practices" I've found for writing new JavaScript modules.
 - [npmignore](#npmignore)
 - [task running](#task-running)
 - [UMD builds](#umd-builds)
-- [entry points](#entry-points)
+- [entry points](#entry-points--vendor-lock-in)
 
 ## module basics
 
@@ -260,7 +260,7 @@ Examples:
 - [three-effectcomposer](https://www.npmjs.org/package/three-effectcomposer) - a ThreeJS plugin using a higher-order function 
 - [global](https://github.com/Raynos/global) - multiple entry points for different globals
 
-The subject is discussed in more detail in the [Entry Points](wiki/Entry-Points) wiki page.
+The subject is discussed in more detail in the [Entry Points](https://github.com/mattdesl/module-best-practices/wiki/Entry-Points) wiki page.
 
 ## more ... ? 
 
