@@ -18,7 +18,7 @@ This is a set of "best practices" I've found for writing new JavaScript modules.
 - [npmignore](#npmignore)
 - [task running](#task-running)
 - [UMD builds](#umd-builds)
-- [entry points](#entry-points--vendor-lock-in)
+- [entry points](#entry-points)
 
 ## module basics
 
@@ -250,9 +250,9 @@ webpack --output-library FunkyParser \
 
 Generally speaking, UMD builds are not very useful for small modules. Adding bundle files leads to heavier repos and another channel you need to support. If somebody wants to use your module, encourage them to depend on it via npm so they can receive patches, or build it themselves with their tool of choice. 
 
-## entry points & vendor lock-in
+## entry points
 
-Occasionally you will find it useful to provide end-users with multiple entry points or a higher-order function. This is especially pertinent to front-end code, where bundle size and non-Node frameworks becomes a concern.
+Occasionally you will find it useful to provide end-users with a non-standard entry point, such as a higher-order function or splitting the module into separate files. This is especially useful for front-end code, where bundle size and non-Node frameworks becomes a concern.
 
 Examples:  
 
