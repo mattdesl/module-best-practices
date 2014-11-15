@@ -103,7 +103,7 @@ For more tips on module creation workflow, [see here](http://mattdesl.svbtle.com
 
 ## constructor best practices
 
-This is a controversial topic for a lot of devs; but I've found the best approach is to hide the `new` keyword when you need to export a class, and parameters should be passed in an `options` object. This leads to a clear and consistent end-user API, and hides internal implementation details of your module. 
+Classes and constructors can be a controversial topic, and often comes down to preference. But I've found the best approach is to hide the `new` keyword when you need to export a class, and have parameters passed in an `options` object. This leads to a clear and consistent end-user API, and hides internal implementation details of your module. You can also export a factory function to achieve the same thing, and explicitly disallow `new`. 
 
 ```js
 function FunkyParser(opt) {
