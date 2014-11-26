@@ -166,7 +166,7 @@ In brief: add tests for your modules. [tape](https://www.npmjs.org/package/tape)
 
 For front-end modules, you may need to test in the browser. For this I encourage [beefy](https://www.npmjs.org/package/beefy) to avoid redundant HTML and build step boilerplate. You can use modules like [lorem-ipsum](https://www.npmjs.org/package/lorem-ipsum), [baboon-image](https://www.npmjs.org/package/baboon-image) and [baboon-image-uri](https://www.npmjs.org/package/baboon-image-uri) for placeholder text and images.
 
-For 2D and WebGL canvas-based demos, I tend to use [canvas-testbed](https://www.npmjs.org/package/canvas-testbed) to reduce boilerplate and produce consistent results across device pixel ratios. Example [here](https://github.com/mattdesl/gl-vignette-background/blob/master/demo/index.js).
+For 2D and WebGL canvas-based demos, I tend to use [canvas-testbed](https://www.npmjs.org/package/canvas-testbed), [game-shell](https://www.npmjs.org/package/game-shell) or [frame-loop](https://www.npmjs.org/package/frame-loop) to reduce boilerplate and produce consistent results across device pixel ratios. Example [here](https://github.com/mattdesl/verlet-system/blob/74afde468c4221a8f2a12d552cfd51470d4ca6d9/demo/bounce.js).
 
 Dependencies used in tests and demos should be installed as `devDependencies` like so:  
 
