@@ -271,11 +271,11 @@ Generally speaking, UMD builds are not very useful for small modules. Adding bun
 
 ## entry points
 
-Occasionally you'll see modules using unusual entry points. This is especially common for modules targeting front-end code, to reduce the bundle size and only pull in methods as needed. This should be used sparingly; if you have a lot of different functions, you should consider whether they need to be in their own modules.
+Occasionally you'll see modules using unusual entry points. This is especially useful for modules targeting front-end code, to reduce the bundle size and only pull in methods as needed. This should be used sparingly; if you have a lot of different functions, you should consider whether they need to be in their own modules.
 
 Examples:  
 
-- [gl-mat4](https://www.npmjs.org/package/gl-mat4) - splitting @toji's gl-matrix library into separate files for smaller bundle size
+- [gl-mat3](https://www.npmjs.org/package/gl-mat3) - splitting @toji's gl-matrix library into separate files for smaller bundle size
 - [eases](https://www.npmjs.com/package/eases) - standalone easing equations
 
 ## more ... ? 
