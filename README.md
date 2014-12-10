@@ -9,7 +9,7 @@ This is a set of "best practices" I've found for writing new JavaScript modules.
 - [small focus](#small-focus)
 - [prefer dependencies](#prefer-dependencies)
 - [discoverability](#discoverability)
-- [constructor best practices](#constructor-best-practices)
+- [API best practices](#api-best-practices)
 - [avoid global state](#avoid-global-state)
 - [testing](#testing)
 - [versioning](#versioning)
@@ -94,6 +94,7 @@ You should make sure your module has these things:
 - common `keywords` listed in package.json
 - a clear `description` in package.json
 - a `license` field in package.json
+- a brief snippet of example code
 
 This will improve the discoverability of your module through Google and npm search, and also give more confidence to people who may want to depend on your code. Better discoverability means less fragmentation overall, which means tighter and better tested application code.
 
@@ -101,9 +102,13 @@ The license is also important for large companies to justify using your module t
 
 For more tips on module creation workflow, [see here](http://mattdesl.svbtle.com/faster-and-cleaner-modules).
 
-## constructor best practices
+## API best practices
 
-Classes and constructors can be a controversial topic, and it often comes down to preference. I've found the best approach is to hide the `new` keyword when you need to export a class, and have parameters passed in an `options` object. This leads to a clear and consistent end-user API, and hides internal implementation details of your module. 
+Keep your APIs short, simple, and easy to remember. If you've got a hundred functions in your module, you might want to rethink your design and split those into other modules. 
+
+You can use a default export to handle the most common use-case, for example: [color-luminance](https://github.com/mattdesl/color-luminance/blob/master/index.js) provides different coefficients, but the default export is the most common case.
+
+Classes and constructors can be a controversial topic, and it often comes down to preference. I've found the best approach is to hide the `new` keyword when you need to export a constructor, and have parameters passed in an `options` object. This leads to a clear and consistent end-user API, and hides internal implementation details of your module. 
 
 ```js
 function FunkyParser(opt) {
@@ -123,16 +128,16 @@ module.exports = FunkyParser
 Alternatively, you could export a factory function to achieve the same thing, and explicitly disallow `new`. 
 
 ```js
-function FunkyParser(opt) {
-    opt = opt||{}
-}
-
 module.exports = function createFunkyParser(opt) {
     return new FunkyParser(opt)
 }
+
+function FunkyParser(opt) {
+    opt = opt||{}
+}
 ```
 
-This allows the module to be required and instantiated inline, like so:
+The above changes allow your module to be required and instantiated inline, like so:
 
 ```js
 var parser = require('funky-parser')({ foo: 'bar' })
@@ -266,15 +271,12 @@ Generally speaking, UMD builds are not very useful for small modules. Adding bun
 
 ## entry points
 
-Occasionally you will find it useful to provide end users with a non-standard entry point, such as a higher-order function or explicit requires. This is especially useful for front-end code, where bundle size and non-Node frameworks becomes a concern.
+Occasionally you'll see modules using unusual entry points. This is especially common for modules targeting front-end code, to reduce the bundle size and only pull in methods as needed. This should be used sparingly; if you have a lot of different functions, you should consider whether they need to be in their own modules.
 
 Examples:  
 
 - [gl-mat4](https://www.npmjs.org/package/gl-mat4) - splitting @toji's gl-matrix library into separate files for smaller bundle size
-- [three-effectcomposer](https://www.npmjs.org/package/three-effectcomposer) - a ThreeJS plugin using a higher-order function 
-- [global](https://github.com/Raynos/global) - multiple entry points for different globals
-
-The subject is discussed in more detail in the [Entry Points](https://github.com/mattdesl/module-best-practices/wiki/Entry-Points) wiki page.
+- [eases](https://www.npmjs.com/package/eases) - standalone easing equations
 
 ## more ... ? 
 
