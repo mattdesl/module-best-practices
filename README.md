@@ -94,7 +94,6 @@ You should make sure your module has these things:
 - common `keywords` listed in package.json
 - a clear `description` in package.json
 - a `license` field in package.json
-- a brief snippet of example code
 
 This will improve the discoverability of your module through Google and npm search, and also give more confidence to people who may want to depend on your code. Better discoverability means less fragmentation overall, which means tighter and better tested application code.
 
@@ -169,7 +168,15 @@ This is a large topic that really deserves its own section.
 
 In brief: add tests for your modules. [tape](https://www.npmjs.org/package/tape) is usually suitable for small modules. More info [here](http://www.macwright.org/2014/03/11/tape-is-cool.html). You can use [nodemon](https://www.npmjs.org/package/nodemon) during development to live-reload your tests. 
 
-For front-end modules, you may need to test in the browser. For this I encourage [beefy](https://www.npmjs.org/package/beefy) to avoid redundant HTML and build step boilerplate. You can use modules like [lorem-ipsum](https://www.npmjs.org/package/lorem-ipsum), [baboon-image](https://www.npmjs.org/package/baboon-image) and [baboon-image-uri](https://www.npmjs.org/package/baboon-image-uri) for placeholder text and images.
+For front-end modules, you may need to test in the browser. During development I often use [beefy](https://www.npmjs.org/package/beefy) to avoid redundant HTML and build step boilerplate. For automated testing (e.g. with PhantomJS) you can use [smokestack](https://www.npmjs.com/package/smokestack) or [testling](https://www.npmjs.com/package/testling). You can use modules like [faucet](https://www.npmjs.com/package/faucet) to pretty-print the output. For example, in your package.json:    
+
+```json
+  "scripts": {
+    "test": "browserify test/*.js | testling | faucet"
+  }
+```
+
+You can use modules like [lorem-ipsum](https://www.npmjs.org/package/lorem-ipsum), [baboon-image](https://www.npmjs.org/package/baboon-image) and [baboon-image-uri](https://www.npmjs.org/package/baboon-image-uri) for placeholder text and images. (Remember to [npmignore](#npm-ignores) these!)
 
 For 2D and WebGL canvas-based demos, I tend to use [canvas-testbed](https://www.npmjs.org/package/canvas-testbed), [game-shell](https://www.npmjs.org/package/game-shell) or [frame-loop](https://www.npmjs.org/package/frame-loop) to reduce boilerplate and produce consistent results across device pixel ratios. Example [here](https://github.com/mattdesl/verlet-system/blob/74afde468c4221a8f2a12d552cfd51470d4ca6d9/demo/bounce.js).
 
