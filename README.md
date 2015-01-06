@@ -83,7 +83,7 @@ There are some benefits to this approach:
 
 When you can't find a suitable dependency, or when the only dependencies are dangerous to depend on (i.e. no testing, unstable API, poorly written), this is where you could take it upon yourself to split the code into its own module. 
 
-It is also better to prefer small dependencies rather than broad "libraries." For example, if your module needs a debounce function, it would be best to depend on [debounce](https://www.npmjs.org/package/debounce) or [lodash.debounce](https://www.npmjs.org/package/lodash.debounce) rather than all of lodash.
+It is also better to prefer small dependencies rather than broad "libraries." For example, if you need to shuffle an array, it would be better to depend on [array-shuffle](https://www.npmjs.com/package/array-shuffle) rather than all of [underscore](http://underscorejs.org/#shuffle) for that sole purpose. 
 
 ## discoverability
 
@@ -168,7 +168,7 @@ This is a large topic that really deserves its own section.
 
 In brief: add tests for your modules. [tape](https://www.npmjs.org/package/tape) is usually suitable for small modules. More info [here](http://www.macwright.org/2014/03/11/tape-is-cool.html). You can use [nodemon](https://www.npmjs.org/package/nodemon) during development to live-reload your tests. 
 
-For front-end modules, you may need to test in the browser. During development I often use [beefy](https://www.npmjs.org/package/beefy) or [prova](https://www.npmjs.com/package/prova) to avoid redundant HTML and build step boilerplate. For command-line testing (i.e. PhantomJS) you can use [smokestack](https://www.npmjs.com/package/smokestack) or [testling](https://www.npmjs.com/package/testling). You can use modules like [faucet](https://www.npmjs.com/package/faucet) to pretty-print the output. For example, in your package.json:    
+For front-end modules, you may need to test in the browser. During development I often use [beefy](https://www.npmjs.org/package/beefy), [wzrd](https://www.npmjs.com/package/wzrd) or [prova](https://www.npmjs.com/package/prova) to avoid redundant HTML and build step boilerplate. For command-line testing (i.e. PhantomJS) you can use [smokestack](https://www.npmjs.com/package/smokestack) or [testling](https://www.npmjs.com/package/testling). You can use modules like [faucet](https://www.npmjs.com/package/faucet) to pretty-print the output. For example, in your package.json:    
 
 ```json
   "scripts": {
@@ -240,7 +240,7 @@ With the [`files`](https://www.npmjs.org/doc/files/package.json.html#files) entr
 
 ## task running
 
-If you have a build task (like [UMD](https://github.com/umdjs/umd) or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, gulp/grunt is often overkill and increases the bloat and install time of your module. 
+If you have a build task (like [UMD](https://github.com/umdjs/umd) or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, you might find gulp/grunt to be overkill.
 
 In `package.json`:
 
@@ -252,7 +252,7 @@ In `package.json`:
   }
 ```
 
-And then, to build:
+These tools would be saved locally with `--save-dev` so that others cloning the repo can run the same versions. Then run the following to build:  
 
 ```npm run build```
 
@@ -283,7 +283,7 @@ Occasionally you'll see modules using unusual entry points. This is especially u
 Examples:  
 
 - [gl-mat3](https://www.npmjs.org/package/gl-mat3) - splitting @toji's gl-matrix library into separate files for smaller bundle size
-- [eases](https://www.npmjs.com/package/eases) - standalone easing equations
+- [eases](https://www.npmjs.com/package/eases) - Robert Penner's easing equations
 
 ## more ... ? 
 
