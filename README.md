@@ -83,7 +83,7 @@ There are some benefits to this approach:
 
 When you can't find a suitable dependency, or when the only dependencies are dangerous to depend on (i.e. no testing, unstable API, poorly written), this is where you could take it upon yourself to split the code into its own module. 
 
-It is also better to prefer small dependencies rather than broad "libraries." For example, if you need to shuffle an array, it would be better to depend on [array-shuffle](https://www.npmjs.com/package/array-shuffle) rather than all of [underscore](http://underscorejs.org/#shuffle) for that sole purpose. 
+It is also better to prefer small dependencies rather than broad "libraries." For example, if you need to shuffle an array, it would be better to depend on [array-shuffle](https://www.npmjs.com/package/array-shuffle) or [xtend](https://www.npmjs.com/package/xtend) rather than all of [underscore](http://underscorejs.org/#shuffle) for those sole functions. 
 
 ## discoverability
 
