@@ -244,7 +244,7 @@ With the [`files`](https://www.npmjs.org/doc/files/package.json.html#files) entr
 
 ## task running
 
-If you have a build task (like [UMD](#UMD-builds) or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, you might find gulp/grunt to be overkill.
+If you have a build task (like [UMD](#umd-builds) or a test runner) it is better to keep this small and light by just adding it to your `npm scripts`. For these simple tasks, you might find gulp/grunt to be overkill.
 
 In `package.json`:
 
