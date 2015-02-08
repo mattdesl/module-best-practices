@@ -178,11 +178,13 @@ For front-end modules, you may need to test in the browser. During development I
 
 You can use modules like [lorem-ipsum](https://www.npmjs.org/package/lorem-ipsum), [baboon-image](https://www.npmjs.org/package/baboon-image) and [baboon-image-uri](https://www.npmjs.org/package/baboon-image-uri) for placeholder text and images.
 
-For 2D and WebGL canvas-based demos, I tend to use [canvas-testbed](https://www.npmjs.org/package/canvas-testbed), [game-shell](https://www.npmjs.org/package/game-shell) or [raf-loop](https://www.npmjs.org/package/raf-loop) to reduce boilerplate and produce consistent results across devices. Example [here](https://github.com/mattdesl/verlet-system/blob/74afde468c4221a8f2a12d552cfd51470d4ca6d9/demo/bounce.js).
+For prototyping in WebGL/Canvas, you can use modules like [game-shell](https://www.npmjs.org/package/game-shell) or [raf-loop](https://www.npmjs.org/package/raf-loop) to reduce boilerplate. Example [here](https://github.com/Jam3/touch-scroll-physics/blob/9459f4bf3a2b68cd0a5bfa74688f2b5ba663a13f/test.js). 
 
 Dependencies used in tests and demos should be installed as `devDependencies` like so:  
 
-```npm install canvas-testbed testling faucet --save-dev```
+```npm install domready testling faucet --save-dev```
+
+See [here](https://github.com/Jam3/jam3-testing-tools) a more detailed approach to unit testing Node/Browser modules.
 
 ## versioning
 
@@ -215,7 +217,7 @@ var rgb = [0, 255, 0]
 var rgba = [1.0, 1.0, 1.0, 0.5]
 ```
 
-This makes it easier to compose with other modules, and avoids the problems of constantly "boxing and unboxing" objects across different libraries. 
+This makes it easier to compose with other modules, and avoids the problems of constantly "boxing and unboxing" objects across different modules with potentially conflicting versions. 
 
 For more advanced data types, like [simplicial-complex](https://www.npmjs.org/package/simplicial-complex), you should still aim to be generic where possible, using bare objects.
 
