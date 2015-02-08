@@ -107,7 +107,7 @@ Keep your APIs short, simple, and easy to remember. If you've got a hundred func
 
 You can use a default export to handle the most common use-case, for example: [color-luminance](https://github.com/mattdesl/color-luminance/blob/master/index.js) provides different coefficients, but the default export is the most common case.
 
-Classes and constructors can be a controversial topic, and it often comes down to preference. I've found the best approach is to hide the `new` keyword when you need to export a constructor, and have parameters passed in an `options` object. This leads to a clear and consistent end-user API, and hides internal implementation details of your module. 
+Classes and constructors can be a controversial topic, and it often comes down to preference. I've found the best approach is to avoid forcing the `new` operator on your end-user, and have parameters passed in an `options` object. This leads to a clear and consistent API, and hides internal implementation details of your module. 
 
 ```js
 function FunkyParser(opt) {
@@ -136,7 +136,9 @@ function FunkyParser(opt) {
 }
 ```
 
-The above changes allow your module to be required and instantiated inline, like so:
+Or, you can simply [use closures](https://github.com/stackgl/gl-clear/blob/master/index.js) instead of relying on prototypes and `this` references. 
+
+The above examples allow your module to be required and instantiated inline, like so:
 
 ```js
 var parser = require('funky-parser')({ foo: 'bar' })
