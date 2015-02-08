@@ -136,7 +136,7 @@ function FunkyParser(opt) {
 }
 ```
 
-Or, you can simply [use closures](https://github.com/stackgl/gl-clear/blob/master/index.js) instead of relying on prototypes and `this` references. 
+Or, you can simply [use closures](https://github.com/stackgl/gl-clear/blob/4041e1288315a9b10ac6010bd73480e1e0fb0dbb/index.js) instead of relying on prototypes and `this` references. 
 
 The above examples allow your module to be required and instantiated inline, like so:
 
