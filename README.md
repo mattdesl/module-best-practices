@@ -260,8 +260,7 @@ These tools would be saved locally with `--save-dev` so that others cloning the 
 
 ```npm run build```
 
-**Note:** One drawback of this approach is that it often encourages Unix-only features like piping. 
-
+**Note:** One drawback of this approach is that it often encourages Unix-only shell features. 
 
 If you're writing small CommonJS modules, you typically won't need to have any tasks except a test runner. In this case don't need to list `browserify` as a devDependency since the source is assumed to work in any CommonJS bundler (webpack, DuoJS, browserify, etc). 
 
