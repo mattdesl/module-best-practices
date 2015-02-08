@@ -234,7 +234,7 @@ module.exports = function sphere() {
 }
 ```
 
-For low-level and performance critical functions operating on these data types, you may want to provide an optional `out` parameter for re-using arrays/objects, to avoid thrashing the garbage collector. Examples: [texcoord](https://www.npmjs.org/package/texcoord), [lerp-array](https://www.npmjs.org/package/lerp-array). Be weary of Array `map/reduce/forEach` which could cause problems if your second or third parameter is the optional `out`. 
+For low-level and performance critical functions operating on these data types, you may want to provide an optional `out` parameter for re-using arrays/objects, to avoid thrashing the garbage collector. Examples: [texcoord](https://www.npmjs.org/package/texcoord), [lerp-array](https://www.npmjs.org/package/lerp-array). However, this goes against some functional programming philosophy, so use it scarcely. 
 
 ## npm ignores
 
