@@ -70,6 +70,8 @@ var random = require('./random')
 
 This forces you to strip away code that doesn't belong in the module, keeping the entry point focused and narrow. It also makes it easy to move the separated functions into their own modules if you later feel the need. 
 
+<sup>*Note:* The `random()` one-liner is for demonstration; typically you would be dealing with larger functions.</sup>
+
 ## prefer dependencies
 
 Although the above code is terse, it could be improved by depending on a module that already exists. For example: [randf](https://www.npmjs.org/package/randf) or [rnd](https://www.npmjs.org/package/rnd) (for integers). 
@@ -83,7 +85,7 @@ There are some benefits to this approach:
 
 When you can't find a suitable dependency, or when the only dependencies are dangerous to depend on (i.e. no testing, unstable API, poorly written), this is where you could take it upon yourself to split the code into its own module. 
 
-It is also better to prefer small dependencies rather than broad "libraries." For example, if you need to shuffle an array, it would be better to depend on [array-shuffle](https://www.npmjs.com/package/array-shuffle) or [xtend](https://www.npmjs.com/package/xtend) rather than all of [underscore](http://underscorejs.org/#shuffle) for those sole functions. 
+It is also better to prefer small dependencies rather than broad "libraries." For example, if you need to shuffle an array or merge objects, it would be better to depend on [array-shuffle](https://www.npmjs.com/package/array-shuffle) or [xtend](https://www.npmjs.com/package/xtend) rather than all of [underscore](http://underscorejs.org/#shuffle) for those sole functions. 
 
 ## discoverability
 
@@ -93,11 +95,11 @@ You should make sure your module has these things:
 - a `repository` field in package.json 
 - common `keywords` listed in package.json
 - a clear `description` in package.json
-- a `license` field in package.json
+- a `license` field in package.json and `LICENSE.md` in the repository
 
 This will improve the discoverability of your module through Google and npm search, and also give more confidence to people who may want to depend on your code. Better discoverability means less fragmentation overall, which means tighter and better tested application code.
 
-The license is also important for large companies to justify using your module to their legal teams.
+The license is important for large companies to justify using your module to their legal teams.
 
 For more tips on module creation workflow, [see here](http://mattdesl.svbtle.com/faster-and-cleaner-modules).
 
@@ -170,7 +172,7 @@ This is a large topic that really deserves its own section.
 
 In brief: add tests for your modules. [tape](https://www.npmjs.org/package/tape) is usually suitable for small modules. More info [here](http://www.macwright.org/2014/03/11/tape-is-cool.html). You can use [nodemon](https://www.npmjs.org/package/nodemon) during development to live-reload your tests. 
 
-For front-end modules, you may need to test in the browser. During development I often use [beefy](https://www.npmjs.org/package/beefy), [wzrd](https://www.npmjs.com/package/wzrd) or [prova](https://www.npmjs.com/package/prova) to avoid redundant HTML and build step boilerplate. For command-line testing (i.e. PhantomJS) you can use [smokestack](https://www.npmjs.com/package/smokestack) or [testling](https://www.npmjs.com/package/testling). You can use modules like [faucet](https://www.npmjs.com/package/faucet) to pretty-print the output. For example, in your package.json:    
+For front-end modules, you may need to test in the browser. During development I often use [budo](https://www.npmjs.org/package/budo), [wzrd](https://www.npmjs.com/package/wzrd) or [prova](https://www.npmjs.com/package/prova) to avoid redundant HTML and build step boilerplate. For command-line testing (i.e. PhantomJS) you can use [smokestack](https://www.npmjs.com/package/smokestack) or [testling](https://www.npmjs.com/package/testling). You can use modules like [faucet](https://www.npmjs.com/package/faucet) to pretty-print the output. For example, in your package.json:    
 
 ```json
   "scripts": {
@@ -186,7 +188,7 @@ Dependencies used in tests and demos should be installed as `devDependencies` li
 
 ```npm install domready testling faucet --save-dev```
 
-See [here](https://github.com/Jam3/jam3-testing-tools) a more detailed approach to unit testing Node/Browser modules.
+See [here](https://github.com/Jam3/jam3-testing-tools) and [here](mattdesl.svbtle.com/rapid-prototyping) for a more detailed approach to unit testing and developing Node/Browser modules.
 
 ## versioning
 
