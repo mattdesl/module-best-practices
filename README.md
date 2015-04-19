@@ -223,20 +223,7 @@ var rgba = [1.0, 1.0, 1.0, 0.5]
 
 This makes it easier to compose with other modules, and avoids the problems of constantly "boxing and unboxing" objects across different modules with potentially conflicting versions. 
 
-For more advanced data types, like [simplicial-complex](https://www.npmjs.org/package/simplicial-complex), you should still aim to be generic where possible, using bare objects.
-
-If you need a higher level wrapper (for example, a Sphere class which has its own color, transforms, WebGL buffers, etc) it would be better to build that wrapper on top of a generic module. See [icosphere](https://www.npmjs.org/package/icosphere) for example:
-
-```js
-//gives us { positions, cells }
-var mesh = require('icosphere')(2)
-
-module.exports = function sphere() {
-    // .. app-specific code that uses generic mesh
-}
-```
-
-For low-level and performance critical functions operating on these data types, you may want to provide an optional `out` parameter for re-using arrays/objects, to avoid thrashing the garbage collector. Examples: [texcoord](https://www.npmjs.org/package/texcoord), [lerp-array](https://www.npmjs.org/package/lerp-array). However, this goes against some functional programming philosophy, so use it scarcely. 
+A good example of this can be seen with *simplicial complexes* such as [icosphere](https://www.npmjs.org/package/icosphere) and [cube-mesh](https://www.npmjs.com/package/cube-mesh). These are render-engine independent, and can be manipulated with modules like [mesh-combine](https://www.npmjs.com/package/mesh-combine), [simplicial-disjoint-union](https://www.npmjs.com/package/simplicial-disjoint-union), [normals](https://www.npmjs.com/package/normals). 
 
 ## npm ignores
 
