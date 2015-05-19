@@ -1,6 +1,6 @@
 {
   "name": "module-best-practices",
-  "version": "1.1.29",
+  "version": "1.1.30",
   "description": "best practices for npm modules",
   "main": "bin/cmd.js",
   "license": "MIT",
