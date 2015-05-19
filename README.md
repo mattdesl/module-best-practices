@@ -188,7 +188,7 @@ Dependencies used in tests and demos should be installed as `devDependencies` li
 
 ```npm install domready testling faucet --save-dev```
 
-See [here](https://github.com/Jam3/jam3-testing-tools) and [here](mattdesl.svbtle.com/rapid-prototyping) for a more detailed approach to unit testing and developing Node/Browser modules.
+See [here](https://github.com/Jam3/jam3-testing-tools) and [here](https://mattdesl.svbtle.com/rapid-prototyping) for a more detailed approach to unit testing and developing Node/Browser modules.
 
 ## versioning
 
