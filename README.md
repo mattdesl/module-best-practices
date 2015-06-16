@@ -70,7 +70,7 @@ var random = require('./random')
 
 This forces you to strip away code that doesn't belong in the module, keeping the entry point focused and narrow. It also makes it easy to move the separated functions into their own modules if you later feel the need. 
 
-<sup>*Note:* The `random()` one-liner is for demonstration; typically you would be dealing with larger functions.</sup>
+<sup>*Note:* The `random()` one-liner is for demonstration; often you would be dealing with larger functions.</sup>
 
 ## prefer dependencies
 
