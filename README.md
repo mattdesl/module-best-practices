@@ -74,7 +74,7 @@ This forces you to strip away code that doesn't belong in the module, keeping th
 
 ## prefer dependencies
 
-Although the above code is terse, it could be improved by depending on a module that already exists. For example: [randf](https://www.npmjs.org/package/randf) or [rnd](https://www.npmjs.org/package/rnd) (for integers). 
+Although the above code is terse, it could be improved by depending on a module that already exists. For example: [random-float](https://www.npmjs.org/package/random-float) or [random-int](https://www.npmjs.org/package/random-int).
 
 There are some benefits to this approach:
 
