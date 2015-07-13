@@ -249,9 +249,12 @@ These tools would be saved locally with `--save-dev` so that others cloning the 
 
 ```npm run build```
 
-**Note:** One drawback of this approach is that it often encourages Unix-only shell features. 
-
 If you're writing small CommonJS modules, you typically won't need to have any tasks except a test runner. In this case you don't need to list `browserify` as a devDependency, since the source is assumed to work in any CommonJS bundler (webpack, DuoJS, browserify, etc). 
+
+Many npm scripts depend on Unix-only or bash-only features. If you want to make sure your scripts are platform-independent, keep to two rules:
+
+* Only use cross-shell operators: `>`, `>>`, `<` and `|` – they work in bash, fish, the windows command prompt and others.
+* Instead of platform-specific tools use node modules with a CLI – for example [`mkdirp`](https://www.npmjs.com/package/mkdirp) instead of `mkdir`, [`cpy`](https://www.npmjs.com/package/cpy) instead of `cp`, [`mve`](https://www.npmjs.com/package/mve) instead of `mv`.
 
 ## UMD builds
 
