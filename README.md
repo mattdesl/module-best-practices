@@ -281,6 +281,11 @@ Examples:
 - [gl-mat3](https://www.npmjs.org/package/gl-mat3) - splitting @toji's gl-matrix library into separate files for smaller bundle size
 - [eases](https://www.npmjs.com/package/eases) - Robert Penner's easing equations
 
+Another exception are utility toolbelts – batches of tiny individual modules distributed together. This helps avoid the tedious management of tens/hundreds of dependencies. For example:
+
+- [1-liners](https://github.com/1-liners/1-liners)
+- [101](https://github.com/tjmehta/101)
+
 ## more ... ? 
 
 Feel free to submit issues/PRs to this repo if you have suggestions or comments. 
