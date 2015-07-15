@@ -105,42 +105,41 @@ For more tips on module creation workflow, [see here](http://mattdesl.svbtle.com
 
 ## API best practices
 
-Keep your APIs short, simple, and easy to remember. If you've got a hundred functions in your module, you might want to rethink your design and split those into other modules. 
+Keep your APIs short, simple, and easy to remember. If you've got a hundred functions in your module, you might want to rethink your design and split those into other modules. [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it) (You Aren't Gonna Need It) is a good principle when building APIs for small modules.
 
 You can use a default export to handle the most common use-case, for example: [color-luminance](https://github.com/mattdesl/color-luminance/blob/master/index.js) provides different coefficients, but the default export is the most common case.
 
-Classes and constructors can be a controversial topic, and it often comes down to preference. I've found the best approach is to avoid forcing the `new` operator on your end-user, and have parameters passed in an `options` object. This leads to a clear and consistent API, and hides internal implementation details of your module. 
+Classes and constructors can be a controversial topic, and it often comes down to preference. I've found the best approach is to avoid forcing the `new` operator on your end-user, and have parameters passed in an `options` object. 
+
+In many cases, closures can be a good choice for small modules.
 
 ```js
-function FunkyParser(opt) {
-    //hide "new"
-    if (!(this instanceof FunkyParser))
-        return new FunkyParser(opt)
-    //make params optional
-    opt = opt||{}
-
-    this.foo = opt.foo || 'default'
-    // handle other options...
-}
-
-module.exports = FunkyParser
-```
-
-Alternatively, you could export a factory function to achieve the same thing, and explicitly disallow `new`. 
-
-```js
-module.exports = function createFunkyParser(opt) {
-    return new FunkyParser(opt)
-}
-
-function FunkyParser(opt) {
-    opt = opt||{}
+module.exports = createFunkyParser
+function createFunkyParser (opt) {
+  // optional params
+  opt = opt || {}
+  
+  // private data
+  var foo = opt.foo || 'default'
+  
+  // API/data for end-user
+  return {
+    foo: foo,
+    ...
+  }
+  
+  // private functions
+  function parse () {
+    ...
+  }
 }
 ```
 
-Or, you can simply [use closures](https://github.com/stackgl/gl-clear/blob/4041e1288315a9b10ac6010bd73480e1e0fb0dbb/index.js) instead of relying on prototypes and `this` references. 
+The returned API will be succinct, with proper information hiding and no pseudo-private `_foo` variables. It also ensures your users won't rely on patterns like `instanceof` and class inheritance, which can be dangerous when composing many small modules.
 
-The above examples allow your module to be required and instantiated inline, like so:
+Another common pattern is to use classes internally, but export a function that can be called without the `new` keyword. See [here](https://gist.github.com/mattdesl/d074d956f07821f7d3bb) for examples.
+
+With the above examples, your module to be required and instantiated inline, like so:
 
 ```js
 var parser = require('funky-parser')({ foo: 'bar' })
@@ -223,7 +222,7 @@ var rgba = [1.0, 1.0, 1.0, 0.5]
 
 This makes it easier to compose with other modules, and avoids the problems of constantly "boxing and unboxing" objects across different modules with potentially conflicting versions. 
 
-A good example of this can be seen with *simplicial complexes* such as [icosphere](https://www.npmjs.org/package/icosphere) and [cube-mesh](https://www.npmjs.com/package/cube-mesh). These are render-engine independent, and can be manipulated with modules like [mesh-combine](https://www.npmjs.com/package/mesh-combine), [simplicial-disjoint-union](https://www.npmjs.com/package/simplicial-disjoint-union), [normals](https://www.npmjs.com/package/normals). 
+A good example of this can be seen with *simplicial complexes* such as [icosphere](https://www.npmjs.org/package/icosphere) and [cube-mesh](https://www.npmjs.com/package/cube-mesh). These are render-engine independent, and can be manipulated with modules like [mesh-combine](https://www.npmjs.com/package/mesh-combine), [simplicial-disjoint-union](https://www.npmjs.com/package/simplicial-disjoint-union) and [normals](https://www.npmjs.com/package/normals). 
 
 ## npm ignores
 
@@ -253,7 +252,7 @@ If you're writing small CommonJS modules, you typically won't need to have any t
 
 Many npm scripts depend on Unix-only or bash-only features. If you want to make sure your scripts are platform-independent, keep these in mind:
 
-* Only use cross-shell operators: `>`, `>>`, `<` and `|` – they work in bash, Windows Command Prompt, [fish](http://fishshell.com/), and others
+* Only use cross-shell operators: `>`, `>>`, `<` and `|` which work in bash, Windows Command Prompt, [fish](http://fishshell.com/), and others
 * Instead of platform-specific tools, use node modules with a CLI – for example [`mkdirp`](https://www.npmjs.com/package/mkdirp) instead of `mkdir`, [`cpy`](https://www.npmjs.com/package/cpy) instead of `cp`, [`mve`](https://www.npmjs.com/package/mve) instead of `mv`, or [`trash`](https://www.npmjs.com/package/trash) instead of `rm`
 
 ## UMD builds
