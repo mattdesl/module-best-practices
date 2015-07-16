@@ -135,7 +135,7 @@ function createFunkyParser (opt) {
 }
 ```
 
-The returned API will be succinct, with proper information hiding and no pseudo-private `_foo` variables. It also ensures your users won't rely on patterns like `instanceof` and class inheritance, which can be dangerous when composing many small modules.
+This can provide succinct APIs and proper information hiding. It also ensures your users won't rely on patterns like `instanceof` and class inheritance, which can be dangerous when composing many small modules.
 
 Another common pattern is to use classes internally, but export a function that can be called without the `new` keyword. See [here](https://gist.github.com/mattdesl/d074d956f07821f7d3bb) for examples.
 
@@ -252,7 +252,7 @@ If you're writing small CommonJS modules, you typically won't need to have any t
 
 Many npm scripts depend on Unix-only or bash-only features. If you want to make sure your scripts are platform-independent, keep these in mind:
 
-* Only use cross-shell operators: `>`, `>>`, `<` and `|` which work in bash, Windows Command Prompt, [fish](http://fishshell.com/), and others
+* Only use cross-shell operators: `>`, `>>`, `<` and `|` which work in bash, Windows Command Prompt, [fish](http://fishshell.com/), and others. You can use tools like [npm-run-all](https://www.npmjs.com/package/npm-run-all) to execute tasks sequentially or in parallel.
 * Instead of platform-specific tools, use node modules with a CLI – for example [`mkdirp`](https://www.npmjs.com/package/mkdirp) instead of `mkdir`, [`cpy`](https://www.npmjs.com/package/cpy) instead of `cp`, [`mve`](https://www.npmjs.com/package/mve) instead of `mv`, or [`rimraf`](https://www.npmjs.com/package/rimraf) instead of `rm`
 
 ## UMD builds
