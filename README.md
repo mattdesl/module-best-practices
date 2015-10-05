@@ -139,7 +139,7 @@ This can provide succinct APIs and proper information hiding. It also ensures yo
 
 Another common pattern is to use classes internally, but export a function that can be called without the `new` keyword. See [here](https://gist.github.com/mattdesl/d074d956f07821f7d3bb) for examples.
 
-With the above examples, your module to be required and instantiated inline, like so:
+With the above examples, your module can be required and instantiated inline, like so:
 
 ```js
 var parser = require('funky-parser')({ foo: 'bar' })
