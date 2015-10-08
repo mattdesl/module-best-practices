@@ -252,7 +252,7 @@ If you're writing small CommonJS modules, you typically won't need to have any t
 
 Many npm scripts depend on Unix-only or bash-only features. If you want to make sure your scripts are platform-independent, keep these in mind:
 
-* Only use cross-shell operators: `>`, `>>`, `<`, `|`, `&&` and `||`. They work in bash, Windows Command Prompt, [fish](http://fishshell.com/), and others. You can use tools like [npm-run-all](https://www.npmjs.com/package/npm-run-all) to execute tasks sequentially or in parallel.
+* Only use cross-shell operators: `>`, `>>`, `<`, `|`, `&&` and `||`. They work in POSIX-compliant shells (bash, sh, zsh) and Windows Command Prompt. You can use tools like [npm-run-all](https://www.npmjs.com/package/npm-run-all) to execute tasks sequentially or in parallel.
 * Instead of platform-specific tools, use node modules with a CLI – for example [`mkdirp`](https://www.npmjs.com/package/mkdirp) instead of `mkdir`, [`cpy`](https://www.npmjs.com/package/cpy) instead of `cp`, [`mve`](https://www.npmjs.com/package/mve) instead of `mv`, or [`rimraf`](https://www.npmjs.com/package/rimraf) instead of `rm`
 
 ## UMD builds
