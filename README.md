@@ -228,7 +228,7 @@ A good example of this can be seen with *simplicial complexes* such as [icospher
 
 For quicker installs, you should only publish the bare minimum to npm. You can ignore most files, like tests, example code, generated API docs, etc.
 
-With the [`files`](https://www.npmjs.org/doc/files/package.json.html#files) entry in `package.json`, you can whitelist specific files to be published. This often leads to the tightest and smallest repos/packages. Alternatively, you can blacklist files from your module with an `.npmignore` file. 
+With the [`files`](https://docs.npmjs.com/files/package.json#files) entry in `package.json`, you can whitelist specific files to be published. This often leads to the tightest and smallest repos/packages. Alternatively, you can blacklist files from your module with an `.npmignore` file. 
 
 ## task running
 
